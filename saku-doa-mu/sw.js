@@ -1,0 +1,12 @@
+const CACHE="sakudoa-v42";
+const FILES=["./", "index.html","img/seni/lukas.jpg","img/kat-putra.jpg","img/kat-bapa.jpg","img/kat-dosa.jpg","img/tobat.jpg","img/seni/00.jpg","img/seni/21.jpg","img/seni/22.jpg","img/seni/23.jpg","img/seni/24.jpg","img/seni/25.jpg","img/seni/26.jpg","img/seni/27.jpg","img/seni/28.jpg","img/seni/01.jpg","img/seni/03.jpg","img/seni/04.jpg","img/seni/05.jpg","img/seni/08.jpg","img/seni/09.jpg","img/seni/10.jpg","img/seni/11.jpg","img/seni/12.jpg","img/seni/13.jpg","img/seni/15.jpg","img/seni/17.jpg","img/seni/18.jpg","img/disputa.jpg","img/santo-petrus.jpg","img/gregorius.jpg","img/ekaristi-kromo.jpg","img/salib-transisi.svg","img/gembira.jpg","img/litani.jpg","img/sebelum-misa.jpg", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "img/anak-hilang-crop.jpg", "img/arwah-kristus.jpg", "img/divider.svg", "img/doa-malam.jpg", "img/doa-umum.jpg", "img/pieta-bouguereau.jpg", "img/dominikus.jpg", "img/ecce.jpg", "img/ekaristi.jpg", "img/frame.svg", "img/gereja.jpg", "img/hero.jpg", "img/jalan-salib.jpg", "img/kebangkitan.jpg", "img/maria.jpg", "img/misa.jpg", "img/monstrans.jpg", "img/semua-orang-kudus.jpg", "img/pengakuan.jpg", "img/pengakuan2.jpg", "img/pentakosta.jpg", "img/pembaptisan.jpg", "img/pieta.jpg", "img/rosario-kuno.jpg", "img/salib-tegak.jpg", "img/salib.jpg", "img/sassoferrato.jpg", "img/tritunggal.jpg"];
+self.addEventListener("install",e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()))});
+self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
+self.addEventListener("fetch",e=>{
+  if(e.request.method!=="GET")return;
+  const url=new URL(e.request.url);
+  if(url.origin===location.origin&&(e.request.mode==="navigate"||url.pathname.endsWith(".html"))){
+    e.respondWith(fetch(e.request).then(r=>{const c=r.clone();caches.open(CACHE).then(x=>x.put(e.request,c));return r}).catch(()=>caches.match(e.request).then(r=>r||caches.match("index.html"))));return;
+  }
+  e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(res=>{if(res.ok&&(url.origin===location.origin||url.hostname.endsWith("gstatic.com")||url.hostname.endsWith("googleapis.com"))){const c=res.clone();caches.open(CACHE).then(x=>x.put(e.request,c))}return res})))
+});
