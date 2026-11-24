@@ -179,7 +179,8 @@ h2{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-sp
 .motion #prog{display:block;position:fixed;inset:0 0 auto 0;height:3px;background:var(--gold);transform-origin:left;transform:scaleX(0);z-index:60}
 .motion .disc{transform:translateY(calc(var(--sy,0) * .1px));animation:pop 1.2s cubic-bezier(.2,.7,.2,1) backwards}
 .motion .shot{transform:translateY(calc(var(--sy,0) * -.04px));animation:shotin 1.1s cubic-bezier(.2,.7,.2,1) .25s backwards}
-.motion .it{animation:up .9s cubic-bezier(.2,.7,.2,1) .05s backwards}
+.motion .it{display:inline-block;animation:kwipe 6s cubic-bezier(.65,0,.35,1) .1s infinite}
+@keyframes kwipe{0%{clip-path:inset(-15% 110% -15% -10%)}20%,76%{clip-path:inset(-15% -10% -15% -10%)}96%,100%{clip-path:inset(-15% -10% -15% 110%)}}
 .motion .big span{display:inline-block;animation:up2 .85s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i) * 55ms + 180ms)}
 .motion .rule i{transform-origin:left;animation:grow 1.1s cubic-bezier(.2,.7,.2,1) .7s backwards}
 .motion .rule .star{animation:up .7s .6s backwards}
