@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coach Kevin Gunawan · Coaching Golf 1:1 Surabaya</title>
+<meta name="description" content="Coaching golf privat satu-lawan-satu di Surabaya bersama Coach Kevin Gunawan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Arah visual: editorial klub golf, krem hangat, serif serif display tebal, hijau hutan, satu aksen lime. */
+:root{
+  --base:#EDF2E3;
+  --ink:#12301E;
+  --muted:#46604F;
+  --accent:#CDE35B;
+  --line:rgba(18,48,30,.24);
+  --serif:"DM Serif Display",Georgia,serif;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:72px;--s7:112px;
+  --wrap:1200px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--base);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.dark :focus-visible{outline-color:var(--accent)}
+.hero-grid>*,.about-grid>*,.contact-grid>*,.course-grid>*{min-width:0}
+.wrap{width:min(100% - 40px,var(--wrap));margin-inline:auto}
+.eyebrow{font:600 12px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.005em}
+h1{font-size:clamp(44px,12vw,84px);line-height:1.02}
+h2{font-size:clamp(34px,8vw,54px)}
+h3{font-size:26px;line-height:1.2}
+.lead{max-width:46ch;color:var(--muted);font-size:18px}
+.todo{background:rgba(205,227,91,.45);padding:0 6px;border-radius:3px;font-weight:600}
+.dark .todo{background:rgba(205,227,91,.25);color:var(--accent)}
+
+/* Tombol */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;font:600 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .15s,color .15s}
+.btn:hover{background:var(--ink);color:var(--base)}
+.btn-fill{background:var(--accent);border-color:var(--accent)}
+.btn-fill:hover{background:var(--ink);border-color:var(--ink);color:var(--accent)}
+.btn svg{width:16px;height:16px}
+
+/* Header */
+.top{position:fixed;top:0;left:0;right:0;z-index:20;background:transparent;border-bottom:1px solid transparent;transition:background .2s,border-color .2s}
+.top.solid{background:var(--base);border-bottom-color:var(--line)}
+.top .wrap:first-child{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:var(--s2)}
+.brand{font:500 15px/1.2 var(--serif);letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.brand span{color:var(--muted)}
+.nav{display:none;margin-left:auto}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;font-size:14px;text-decoration:none}
+.nav a:hover{text-decoration:underline;text-underline-offset:6px}
+.menu-btn{margin-left:auto;min-height:44px;min-width:44px;padding:0 16px;background:none;border:1.5px solid var(--line);border-radius:999px;font:600 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+.top .btn{display:none}
+.mobile-nav{display:none;border-top:1px solid var(--line);padding:var(--s1) 0 var(--s2)}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:flex;align-items:center;min-height:48px;text-decoration:none;font-family:var(--serif);font-size:24px;border-bottom:1px solid var(--line)}
+.mobile-nav .btn{margin-top:var(--s2);width:100%}
+@media (min-width:900px){
+  .top .wrap:first-child{display:grid;grid-template-columns:1fr auto 1fr}.top .wrap:first-child::before{content:""}.nav{display:flex;margin-left:0}.top .btn{display:inline-flex;min-height:44px;justify-self:end}.menu-btn{display:none}.mobile-nav{display:none!important}
+}
+
+/* Hero */
+.hero{padding:calc(72px + var(--s5)) 0 var(--s6);position:relative;overflow:hidden}
+.hero-grid{display:grid;gap:var(--s5)}
+.hero h1{margin:var(--s2) 0 var(--s3)}
+.hero .lead{margin-bottom:var(--s4)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center}
+.hero-note{margin-top:var(--s4);padding-top:var(--s2);border-top:1px solid var(--line);max-width:46ch;font-size:15px;color:var(--muted)}
+.collage{position:relative}
+.blob{overflow:hidden;background:#c9d6bb}
+.blob img{width:100%;height:100%;object-fit:cover}
+.blob-main{aspect-ratio:1/.9;border-radius:62% 38% 55% 45% / 58% 46% 54% 42%}
+.blob-main img{object-position:50% 70%}
+@media (min-width:900px){
+  .hero{padding:calc(72px + var(--s6)) 0 var(--s7)}
+  .hero-grid{grid-template-columns:5fr 6fr;align-items:center;gap:var(--s6)}
+  .collage{aspect-ratio:1/.92}
+  .blob{position:absolute}
+  .blob-main{inset:0;aspect-ratio:auto;border-radius:62% 38% 55% 45% / 58% 46% 54% 42%}
+    }
+
+/* Bagian gelap dengan tepi bergerigi */
+.dark{background:var(--ink);color:var(--base);position:relative;padding:var(--s7) 0 var(--s6)}
+.dark::before{content:"";position:absolute;left:0;right:0;top:-20px;height:20px;background:repeating-linear-gradient(90deg,var(--ink) 0 28px,transparent 28px 56px)}
+.dark .eyebrow,.dark .lead{color:rgba(237,242,227,.72)}
+.exp-head{display:grid;gap:var(--s2);margin-bottom:var(--s5)}
+.exp-head h2{max-width:12ch}
+.exp-list{display:grid;gap:var(--s5);list-style:none;padding:0}
+.exp-item{align-content:start;border-top:1px solid rgba(237,242,227,.28);padding-top:var(--s3);display:grid;gap:var(--s2)}
+.exp-item img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-bottom:var(--s1)}
+.exp-item .no{font:400 14px var(--sans);letter-spacing:.12em;color:var(--accent)}
+.exp-item p{color:rgba(237,242,227,.78);max-width:38ch}
+@media (min-width:900px){
+  .exp-head{grid-template-columns:1fr 1fr;align-items:end}
+  .exp-list{grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+}
+
+/* Tentang */
+section{scroll-margin-top:88px}
+.about{padding:var(--s7) 0}
+.about-grid{display:grid;gap:var(--s5)}
+.about-photo{border-radius:6px;overflow:hidden;max-width:420px}
+.about-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 12%}
+.about h2{margin:var(--s2) 0 var(--s3)}
+.about p{max-width:60ch;margin-bottom:var(--s2)}
+.facts{margin-top:var(--s4);border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:130px 1fr;gap:var(--s2);padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
+.facts dt{font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.facts dd{margin:0}
+@media (min-width:900px){.about-grid{grid-template-columns:5fr 6fr;gap:var(--s6);align-items:start}}
+
+/* Alur */
+.flow{padding:0 0 var(--s7)}
+.flow h2{margin-bottom:var(--s5);max-width:14ch}
+.steps{list-style:none;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:56px 1fr;gap:var(--s2);padding:var(--s3) 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li::before{content:"0" counter(s);font:400 28px/1 var(--serif);color:var(--muted)}
+.steps h3{margin-bottom:6px}
+.steps p{color:var(--muted);max-width:52ch}
+@media (min-width:900px){.steps{grid-template-columns:repeat(4,1fr);gap:var(--s3)}.steps li{display:block;border-bottom:0!important;padding-right:var(--s2)}.steps li::before{display:block;margin-bottom:var(--s2)}}
+
+/* Timeline horizontal: geser ke kanan */
+.timeline{padding:var(--s7) 0;--gut:max(20px,calc((100vw - 1200px) / 2))}
+.timeline h2{margin:var(--s2) 0 var(--s2);max-width:16ch}
+.tl-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:var(--s3);margin-bottom:var(--s5)}
+.tl-ctrl{display:flex;align-items:center;gap:var(--s1)}
+.tl-count{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:var(--s1)}
+.icon-btn{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,color .15s}
+.icon-btn:hover:not(:disabled){background:var(--ink);color:var(--base)}
+.icon-btn:disabled{opacity:.35;cursor:default}
+.tl{list-style:none;margin:0;padding:0 var(--gut) var(--s3);display:flex;gap:var(--s4);overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+.tl::-webkit-scrollbar{display:none}
+.tl{cursor:grab}
+.tl.drag{cursor:grabbing;user-select:none}
+.tl-item{display:flex;flex-direction:column;position:relative;flex:0 0 min(84vw,400px);min-width:0;padding-top:48px}
+.tl-item::before{content:"";position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--base);border:2px solid var(--ink);z-index:1}
+.tl-item::after{content:"";position:absolute;left:24px;top:11px;height:2px;width:calc(100% - 24px + var(--s4));background:var(--ink)}
+.tl-last::before{background:var(--accent)}
+.tl-last::after{display:none}
+.tl-no{display:block;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.tl-head{margin-bottom:var(--s3)}
+.tl-head h3{font-size:clamp(24px,5vw,30px)}
+.tl-body{flex:1;display:flex;flex-direction:column}
+.tl-body ul{list-style:none;padding:0;display:grid;gap:8px;margin-bottom:var(--s3)}
+.tl-body ul li{position:relative;padding-left:20px}
+.tl-body ul li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:1.5px;background:var(--ink)}
+.milestone{margin-top:auto;background:var(--accent);padding:var(--s2) var(--s3);border-radius:6px;font-weight:500}
+.milestone span{display:block;font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;opacity:.75}
+
+/* Program */
+.program{background:#DFE8D0;padding:var(--s7) 0}
+.program h2{margin-bottom:var(--s2)}
+.program .lead{margin-bottom:var(--s5)}
+.plans{display:grid;gap:var(--s3)}
+.plan{display:flex;flex-direction:column;align-items:flex-start;padding:var(--s4);border:1.5px solid var(--ink);border-radius:12px}
+.plan h3{font-size:30px}
+.plan .price{font:400 clamp(36px,8vw,48px)/1.1 var(--serif);margin-top:var(--s3)}
+.plan .per{font-size:14px;color:var(--muted);margin-top:4px}
+.plan .desc{margin:var(--s3) 0 var(--s4);max-width:36ch;flex:1}
+.plan-main{background:var(--ink);color:var(--base)}
+.plan-main .per{color:rgba(237,242,227,.72)}
+.plan-main .price{color:var(--accent)}
+.plan-main .btn-fill:hover{background:var(--base);border-color:var(--base);color:var(--ink)}
+.plan-main :focus-visible{outline-color:var(--accent)}
+@media (min-width:720px){.plans{grid-template-columns:1fr 1fr;gap:var(--s4)}}
+
+/* Kontak */
+.contact{padding:var(--s7) 0}
+.contact-grid{display:grid;gap:var(--s5)}
+.contact h2{margin:var(--s2) 0 var(--s3)}
+.form{display:grid;gap:var(--s3)}
+.field label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;min-height:48px;padding:12px 14px;font:400 16px var(--sans);color:var(--ink);background:#fff9;border:1.5px solid var(--ink);border-radius:6px}
+.field textarea{min-height:112px;resize:vertical}
+.field .hint{font-size:13px;color:var(--muted);margin-top:4px}
+.field .err{display:none;font-size:14px;margin-top:6px;color:#8A2A12}
+.field.bad .err{display:block}
+.field.bad input,.field.bad select{border-color:#8A2A12}
+.result{display:none;padding:var(--s3);border:1.5px solid var(--ink);border-radius:6px;background:#fff9}
+.result.show{display:block}
+.result p{margin-bottom:var(--s2)}
+@media (min-width:900px){.contact-grid{grid-template-columns:5fr 6fr;gap:var(--s6)}}
+
+/* Gerak: hanya untuk memandu perhatian saat bagian muncul; mati bila prefers-reduced-motion */
+.anim .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.anim .rv.in{opacity:1;transform:none}
+.anim .blob-main img{transform:scale(1.12);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.anim .blob-main.in img{transform:scale(1)}
+.btn{transition:background .15s,color .15s,transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.plan{transition:transform .25s,box-shadow .25s}
+.plan:hover{transform:translateY(-4px)}
+footer{border-top:1px solid var(--line);padding:var(--s4) 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2)}
+</style>
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("anim")</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Utama">
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#coach">Tentang Coach</a>
+      <a href="#kurikulum">Kurikulum</a>
+      <a href="#program">Program</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <a class="btn btn-fill" href="#kontak">Jadwalkan Sesi</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav">Menu</button>
+  </div>
+  <div class="wrap">
+    <div class="mobile-nav" id="mnav">
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#coach">Tentang Coach</a>
+      <a href="#kurikulum">Kurikulum</a>
+      <a href="#program">Program</a>
+      <a href="#kontak">Kontak</a>
+      <a class="btn btn-fill" href="#kontak" style="font-family:var(--sans);font-size:13px">Jadwalkan Sesi</a>
+    </div>
+  </div>
+</header>
+
+<main id="atas">
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Coaching golf privat 1:1 · Surabaya</p>
+        <h1 id="h-hero">Swing Indah, Dalam 1 Bulan</h1>
+        <p class="lead">Satu murid, satu coach, satu lapangan. Coach Kevin Gunawan membimbing ayunan dan strategi bermain Anda langsung di lapangan, dengan rencana latihan yang bisa Anda lanjutkan sendiri.</p>
+        <div class="hero-cta">
+          <a class="btn btn-fill" href="#kontak">Jadwalkan Sesi Perdana</a>
+          <a class="btn" href="#program">Lihat Program</a>
+        </div>
+        <p class="hero-note">Lokasi sesi: fleksibel di area Surabaya, lapangan menyesuaikan Anda.</p>
+      </div>
+      <div class="collage">
+        <div class="blob blob-main"><img src="img/swing-atas.jpg" alt="Coach Kevin Gunawan di puncak ayunan dengan latar lapangan dan gedung Surabaya" ></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="pengalaman" aria-labelledby="h-exp">
+    <div class="wrap">
+      <div class="exp-head">
+        <div>
+          <p class="eyebrow">Pengalaman coaching 1:1</p>
+          <h2 id="h-exp">Dibangun di luar permainan standar</h2>
+        </div>
+        <p class="lead">Setiap sesi dimulai dari permainan Anda yang sekarang, bukan dari kurikulum yang sama untuk semua orang.</p>
+      </div>
+      <ol class="exp-list">
+        <li class="exp-item">
+          <img src="img/swing-belakang.jpg" alt="Coach Kevin dari belakang saat menyelesaikan ayunan" loading="lazy" style="object-position:50% 35%">
+          <span class="no">01</span>
+          <h3>Analisis Ayunan</h3>
+          <p>Kita lihat ayunan Anda dari awal sampai akhir, lalu pilih satu atau dua hal yang paling berpengaruh untuk diperbaiki lebih dulu.</p>
+        </li>
+        <li class="exp-item">
+          <img src="img/lapangan-troli.jpg" alt="Fairway dengan dua troli golf di bawah tiang lampu" loading="lazy" style="object-position:50% 80%">
+          <span class="no">02</span>
+          <h3>Strategi di Lapangan</h3>
+          <p>Memilih klub, membaca lie, menentukan target. Latihan tidak berhenti di driving range.</p>
+        </li>
+        <li class="exp-item">
+          <img src="img/lapangan-senja.jpg" alt="Lapangan golf dengan danau kecil dan langit mendung" loading="lazy" style="object-position:50% 75%">
+          <span class="no">03</span>
+          <h3>Rencana Latihan Pribadi</h3>
+          <p>Anda pulang dengan rencana latihan yang jelas, disesuaikan dengan level dan jadwal Anda.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="about" id="coach" aria-labelledby="h-coach">
+    <div class="wrap about-grid">
+      <div class="about-photo"><img src="img/kevin-senyum.jpg" alt="Coach Kevin Gunawan tersenyum di lapangan golf" loading="lazy"></div>
+      <div>
+        <p class="eyebrow">Tentang Coach</p>
+        <h2 id="h-coach">Kevin Gunawan</h2>
+        <p>Coach Kevin mengajar golf secara privat di area Surabaya. Pendekatannya sederhana: jelaskan satu hal dengan jelas, pastikan Anda merasakannya sendiri, lalu ulangi sampai jadi kebiasaan.</p>
+                <dl class="facts">
+          <div><dt>Lokasi</dt><dd>Area Surabaya, lapangan menyesuaikan Anda</dd></div>
+          <div><dt>Format</dt><dd>Privat 1:1, satu murid per sesi</dd></div>
+          <div><dt>Tarif</dt><dd>Rp350.000 per jam</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow" aria-labelledby="h-flow">
+    <div class="wrap">
+      <h2 id="h-flow">Cara kerja kita</h2>
+      <ol class="steps">
+        <li><div><h3>Hubungi Coach</h3><p>Ceritakan level dan target Anda lewat formulir di bawah.</p></div></li>
+        <li><div><h3>Sesi Perdana</h3><p>Evaluasi ayunan dan permainan Anda saat ini di lapangan.</p></div></li>
+        <li><div><h3>Latihan Terarah</h3><p>Fokus pada satu perbaikan per tahap, dengan umpan balik langsung.</p></div></li>
+        <li><div><h3>Bawa ke Lapangan</h3><p>Terapkan hasilnya saat bermain, lalu sesuaikan rencana berikutnya.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="timeline" id="kurikulum" aria-labelledby="h-tl">
+    <div class="wrap tl-top">
+      <div class="tl-intro">
+        <p class="eyebrow">Kurikulum Paket 8 Sesi</p>
+        <h2 id="h-tl">Dari setup sampai siap main</h2>
+        <p class="lead">Setiap sesi punya satu target yang bisa diukur. Geser ke kanan untuk melihat perjalanan dari sesi pertama sampai evaluasi akhir.</p>
+      </div>
+      <div class="tl-ctrl">
+        <span class="tl-count" id="tlc" aria-live="polite">Sesi 1 dari 8</span>
+        <button class="icon-btn" type="button" id="tlp" aria-label="Sesi sebelumnya" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="icon-btn" type="button" id="tln" aria-label="Sesi berikutnya"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <ol class="tl" id="tl" tabindex="0" role="region" aria-label="Kurikulum 8 sesi, geser ke kanan">
+        <li class="tl-item">
+          <div class="tl-head"><span class="tl-no">Sesi 1</span><h3>Swing Assessment & Fundamental Setup</h3></div>
+          <div class="tl-body">
+            <ul><li>Video swing analysis awal dari 2 sudut (down-the-line dan face-on)</li><li>Koreksi grip, posture, alignment, dan ball position</li><li>Drill kontrol kontak dasar: half-swing dengan 9-iron</li></ul>
+            <p class="milestone"><span>Target hasil</span>Posisi setup konsisten dan paham baseline mekanik tubuh sendiri.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-head"><span class="tl-no">Sesi 2</span><h3>Iron Play & Ball Striking</h3></div>
+          <div class="tl-body">
+            <ul><li>Urutan kinematic sequence, dari takeaway sampai impact</li><li>Kompresi bola dengan mid-iron (7-iron / 8-iron)</li><li>Drill mengatasi fat/thin shot dan kontrol arah</li></ul>
+            <p class="milestone"><span>Target hasil</span>Kontak bola solid (ball-first contact) dengan dispersi arah yang lebih sempit.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-head"><span class="tl-no">Sesi 3</span><h3>Driver & Fairway Wood</h3></div>
+          <div class="tl-body">
+            <ul><li>Penyesuaian angle of attack positif dan tinggi tee</li><li>Tempo dan kecepatan clubhead tanpa kehilangan keseimbangan</li><li>Koreksi pola slice atau hook</li></ul>
+            <p class="milestone"><span>Target hasil</span>Launch angle optimal dan akurasi pukulan jarak jauh dari tee.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-head"><span class="tl-no">Sesi 4</span><h3>Wedge Matrix & Distance Control</h3></div>
+          <div class="tl-body">
+            <ul><li>Pemetaan jarak 30–80 meter dengan wedge</li><li>Sistem clock-face swing: ayunan jam 7, 8, dan 9</li><li>Kontrol spin dan ketinggian bola</li></ul>
+            <p class="milestone"><span>Target hasil</span>Mampu mengunci jarak spesifik di area pendekatan (approach shot).</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-head"><span class="tl-no">Sesi 5</span><h3>Short Game: Chipping & Pitching</h3></div>
+          <div class="tl-body">
+            <ul><li>Latihan di chipping green fasilitas driving range</li><li>Teknik chip-and-run vs. pitch shot tinggi</li><li>Pemilihan stik dan titik pendaratan (landing spot)</li></ul>
+            <p class="milestone"><span>Target hasil</span>Mengurangi skor terbuang di sekitar green dan memperdekat bola ke lubang.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-head"><span class="tl-no">Sesi 6</span><h3>Putting Mastery & Green Reading</h3></div>
+          <div class="tl-body">
+            <ul><li>Latihan di putting green driving range</li><li>Kontrol jarak (lag putting) dan ayunan pendulum</li><li>Gate drill untuk akurasi face angle jarak 1–2 meter</li></ul>
+            <p class="milestone"><span>Target hasil</span>Menghilangkan 3-putt dan meningkatkan persentase masuk di jarak krusial.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-head"><span class="tl-no">Sesi 7</span><h3>Pre-Shot Routine & Target Focus</h3></div>
+          <div class="tl-body">
+            <ul><li>Membangun pre-shot routine yang konsisten (visualisasi dan komitmen)</li><li>Drill ganti stik setiap 1 bola: random practice vs. block practice</li><li>Simulasi tekanan sebelum memukul</li></ul>
+            <p class="milestone"><span>Target hasil</span>Terbiasa mengambil keputusan cepat dan fokus pada target, bukan hanya teknik.</p>
+          </div>
+        </li>
+        <li class="tl-item tl-last">
+          <div class="tl-head"><span class="tl-no">Sesi 8</span><h3>9-Hole Range Simulation & Final Evaluation</h3></div>
+          <div class="tl-body">
+            <ul><li>Simulasi 9 hole nyata di driving range (ganti stik sesuai skenario tiap hole)</li><li>Video before-after, dibandingkan dengan Sesi 1</li><li>Penyusunan personalized practice plan mandiri</li></ul>
+            <p class="milestone"><span>Target hasil</span>Mampu menerjemahkan seluruh teknik ke skenario permainan dan punya panduan latihan mandiri.</p>
+          </div>
+        </li>
+      </ol>
+  </section>
+
+  <section class="program" id="program" aria-labelledby="h-prog">
+    <div class="wrap">
+      <p class="eyebrow">Program</p>
+      <h2 id="h-prog">Pilih cara berlatih</h2>
+      <p class="lead">Jadwal dan lapangan bisa disesuaikan dengan Anda.</p>
+      <div class="plans">
+        <article class="plan">
+          <h3>Sesi Tunggal</h3>
+          <p class="price">Rp350.000</p>
+          <p class="per">per sesi · 1 jam</p>
+          <p class="desc">Satu sesi coaching privat. Cocok untuk evaluasi awal atau memperbaiki satu masalah.</p>
+          <a class="btn" href="#kontak">Pilih Sesi Tunggal</a>
+        </article>
+        <article class="plan plan-main">
+          <h3>Paket 8 Sesi</h3>
+          <p class="price">Rp2.500.000</p>
+          <p class="per">8 sesi berkelanjutan</p>
+          <p class="desc">Dua sesi terakhir bisa dilakukan sebagai coaching turun lapangan.</p>
+          <a class="btn btn-fill" href="#kontak">Pilih Paket 8 Sesi</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="contact" id="kontak" aria-labelledby="h-kontak" style="background:#DFE8D0">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Kontak</p>
+        <h2 id="h-kontak">Jadwalkan sesi perdana</h2>
+        <p class="lead">Isi formulir, lalu pesan Anda terbuka di WhatsApp Coach Kevin dalam bentuk yang sudah rapi.</p>
+        <p style="margin-top:var(--s3)">WhatsApp: <a href="https://wa.me/6281292493101">+62 812-9249-3101</a></p>
+      </div>
+      <form class="form" id="f" novalidate>
+        <div class="field" data-f="nama">
+          <label for="nama">Nama Anda</label>
+          <input id="nama" name="nama" type="text" autocomplete="name" required>
+          <p class="err" role="alert">Tulis nama Anda supaya Coach tahu siapa yang dihubungi.</p>
+        </div>
+        <div class="field" data-f="level">
+          <label for="level">Level bermain</label>
+          <select id="level" name="level" required>
+            <option value="">Pilih level</option>
+            <option>Baru mulai</option>
+            <option>Sudah rutin bermain</option>
+            <option>Ingin turun handicap</option>
+          </select>
+          <p class="err" role="alert">Pilih salah satu level agar sesi bisa disiapkan.</p>
+        </div>
+        <div class="field">
+          <label for="target">Target Anda</label>
+          <textarea id="target" name="target"></textarea>
+          <p class="hint">Opsional. Contoh: pukulan sering slice, ingin lebih stabil dari tee.</p>
+        </div>
+        <button class="btn btn-fill" type="submit">Buat Pesan WhatsApp</button>
+        <div class="result" id="res" aria-live="polite">
+          <p>Pesan sudah siap. Buka WhatsApp untuk mengirimnya ke Coach Kevin.</p>
+          <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Buka WhatsApp</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Kevin Gunawan · Coaching Golf 1:1 Surabaya</span>
+    <a href="#atas">Kembali ke atas</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var NOMOR="6281292493101";
+  var mb=document.querySelector(".menu-btn"),mn=document.getElementById("mnav");
+  mb.addEventListener("click",function(){var o=mn.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+  mn.addEventListener("click",function(e){if(e.target.closest("a")){mn.classList.remove("open");mb.setAttribute("aria-expanded","false")}});
+  var hd=document.querySelector(".top");
+  function sc(){hd.classList.toggle("solid",window.scrollY>10||mn.classList.contains("open"))}
+  window.addEventListener("scroll",sc,{passive:true});sc();
+  mb.addEventListener("click",sc);mn.addEventListener("click",function(){setTimeout(sc,0)});
+  if(document.documentElement.classList.contains("anim")&&"IntersectionObserver" in window){
+    var sel=".hero .eyebrow,.hero h1,.hero .lead,.hero-cta,.hero-note,.blob-main,.exp-head>*,.exp-item,.about-photo,.about-grid>div:last-child,.flow h2,.steps li,.tl-intro>*,.program .eyebrow,.program h2,.program .lead,.plan,.contact-grid>*";
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+    document.querySelectorAll(sel).forEach(function(el){
+      var i=[].indexOf.call(el.parentNode.children,el);
+      el.classList.add("rv");el.style.setProperty("--d",Math.min(i,5)*.09+"s");io.observe(el);
+    });
+  }
+
+  var tl=document.getElementById("tl"),tp=document.getElementById("tlp"),tn=document.getElementById("tln"),tc=document.getElementById("tlc");
+  var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function step(){var it=tl.children[1]||tl.children[0];return it.getBoundingClientRect().left-tl.children[0].getBoundingClientRect().left}
+  function go(d){tl.scrollBy({left:d*step(),behavior:rm?"auto":"smooth"})}
+  function upd(){
+    var n=tl.children.length,i=Math.round(tl.scrollLeft/step());i=Math.max(0,Math.min(n-1,i));
+    if(tl.scrollLeft+tl.clientWidth>=tl.scrollWidth-4)i=n-1;
+    tc.textContent="Sesi "+(i+1)+" dari "+n;
+    tp.disabled=tl.scrollLeft<=4;tn.disabled=tl.scrollLeft+tl.clientWidth>=tl.scrollWidth-4;
+  }
+  tp.addEventListener("click",function(){go(-1)});tn.addEventListener("click",function(){go(1)});
+  tl.addEventListener("scroll",upd,{passive:true});window.addEventListener("resize",upd);
+  tl.addEventListener("keydown",function(e){if(e.key==="ArrowRight"){e.preventDefault();go(1)}else if(e.key==="ArrowLeft"){e.preventDefault();go(-1)}});
+  var dn=false,sx=0,sl=0,lx=0,lt=0,v=0,raf=0;
+  function coast(){if(Math.abs(v)<.2){return}tl.scrollLeft-=v;v*=.95;raf=requestAnimationFrame(coast)}
+  tl.addEventListener("pointerdown",function(e){if(e.pointerType!=="mouse"||e.button!==0)return;cancelAnimationFrame(raf);dn=true;sx=lx=e.clientX;lt=e.timeStamp;v=0;sl=tl.scrollLeft;tl.classList.add("drag");tl.setPointerCapture(e.pointerId)});
+  tl.addEventListener("pointermove",function(e){if(!dn)return;tl.scrollLeft=sl-(e.clientX-sx);var dt=e.timeStamp-lt;if(dt>0){v=(e.clientX-lx)/dt*16;lx=e.clientX;lt=e.timeStamp}});
+  function end(){if(!dn)return;dn=false;tl.classList.remove("drag");if(!rm)raf=requestAnimationFrame(coast)}
+  tl.addEventListener("pointerup",end);tl.addEventListener("pointercancel",end);
+  upd();
+  var f=document.getElementById("f");
+  function check(name){var el=f.elements[name],box=el.closest(".field"),ok=el.value.trim()!=="";box.classList.toggle("bad",!ok);return ok}
+  ["nama","level"].forEach(function(n){var el=f.elements[n];el.addEventListener("blur",function(){check(n)});el.addEventListener("input",function(){if(el.value.trim())el.closest(".field").classList.remove("bad")})});
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    var a=check("nama"),b=check("level");if(!(a&&b))return;
+    var t=f.elements.target.value.trim();
+    var msg="Halo Coach Kevin, saya "+f.elements.nama.value.trim()+". Level bermain saya: "+f.elements.level.value+"."+(t?" Target saya: "+t+".":"")+" Saya ingin menjadwalkan sesi perdana.";
+    document.getElementById("wa").href="https://wa.me/"+NOMOR+"?text="+encodeURIComponent(msg);
+    document.getElementById("res").classList.add("show");
+  });
+})();
+</script>
+</body>
+</html>
