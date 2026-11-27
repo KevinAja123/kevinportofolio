@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PahamExcel — Kursus Microsoft Excel Online</title>
+<meta name="description" content="Kursus Microsoft Excel online berbahasa Indonesia: dari rumus dasar sampai dashboard dan analisis data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F2EA;
+  --bg-2:#EAE7DB;
+  --ink:#121212;
+  --ink-2:#55544E;
+  --line:#CFCCBF;
+  --accent:#1B7A45;
+  --accent-ink:#0F5A31;
+  --dark:#121412;
+  --dark-2:#1C1F1C;
+  --on-dark:#F4F2EA;
+  --on-dark-2:#A9A99F;
+  --f-sans:"Schibsted Grotesk","Helvetica Neue",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,monospace;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;--s10:128px;
+  --wrap:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--f-sans);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.6;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+ul{list-style:none}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.dark :focus-visible{outline-color:#6FD39B}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--s5)}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:var(--bg);padding:12px 16px;z-index:100}
+.skip:focus{left:8px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:var(--s2);min-height:48px;padding:0 var(--s5);font:600 16px/1 var(--f-sans);text-decoration:none;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn--solid{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn--solid:hover{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff}
+.dark .btn{border-color:var(--on-dark);color:var(--on-dark)}
+.dark .btn:hover{background:var(--on-dark);color:var(--dark)}
+.dark .btn--solid{background:#2AA362;border-color:#2AA362;color:#08170E}
+.dark .btn--solid:hover{background:#6FD39B;border-color:#6FD39B;color:#08170E}
+.btn svg{width:18px;height:18px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(244,242,234,.94);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:var(--s4)}
+.logo{display:inline-flex;align-items:center;gap:var(--s3);font-weight:700;font-size:20px;letter-spacing:-.02em;text-decoration:none;min-height:44px}
+.logo-mark{width:28px;height:28px;border-radius:6px;background:var(--accent);display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:6px}
+.logo-mark i{background:#fff;opacity:.95;border-radius:1px}
+.logo-mark i:nth-child(2){opacity:.45}.logo-mark i:nth-child(3){opacity:.45}
+.nav{display:none}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 var(--s3);font-size:15px;text-decoration:none;color:var(--ink-2)}
+.nav a:hover{color:var(--ink)}
+.bar-actions{display:none;align-items:center;gap:var(--s2)}
+.bar-actions .signin{display:inline-flex;align-items:center;min-height:44px;padding:0 var(--s3);font-size:15px;font-weight:600;text-decoration:none}
+.menu-btn{min-width:44px;min-height:44px;border:1.5px solid var(--ink);border-radius:999px;background:none;font:600 14px var(--f-sans);padding:0 var(--s4);cursor:pointer;color:var(--ink)}
+.mobile-nav{display:none;border-top:1px solid var(--line);padding:var(--s3) 0 var(--s5)}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:flex;align-items:center;min-height:48px;text-decoration:none;font-size:18px;font-weight:500;border-bottom:1px solid var(--line)}
+.mobile-nav .btn{margin-top:var(--s4);width:100%;justify-content:center;border-bottom:1.5px solid var(--accent)}
+@media(min-width:960px){
+  .nav,.bar-actions{display:flex}
+  .menu-btn,.mobile-nav{display:none!important}
+}
+
+/* Hero */
+.hero{padding:var(--s6) 0 var(--s8)}
+.hero-meta{display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;color:var(--ink-2);margin-bottom:var(--s7)}
+.hero-grid{display:grid;gap:var(--s7);align-items:end}
+h1{font-weight:800;font-size:clamp(3.5rem,9.4vw,8.25rem);line-height:.9;letter-spacing:-.045em}
+h1{color:var(--ink)}
+h1 .line{display:block}
+h1 .line--g{color:var(--accent)}
+h1 .c{opacity:0}
+h1 .c.on{opacity:1}
+.caret{display:inline-block;width:0;position:relative}
+.caret::after{content:"";position:absolute;left:.05em;bottom:.06em;width:.06em;height:.8em;background:var(--accent);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-lead{max-width:34em;font-size:19px;color:var(--ink-2);margin-top:var(--s6)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s6)}
+.sheet-card{position:relative;background:var(--dark);border-radius:16px;padding:var(--s3);color:var(--on-dark)}
+.sheet{background:#fff;color:#111;border-radius:8px;overflow:hidden;font-family:var(--f-mono);font-size:11px}
+.sheet-top{display:flex;align-items:center;gap:var(--s2);background:#1B7A45;color:#fff;padding:6px 12px;font-size:11px}
+.sheet-top b{font-weight:500}
+.fx{display:flex;border-bottom:1px solid #DDD;background:#FAFAFA}
+.fx span{padding:4px 10px;border-right:1px solid #DDD;color:#666}
+.fx em{font-style:normal;padding:4px 10px;color:#1B7A45;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.grid{display:grid;grid-template-columns:28px 1.2fr 1fr 1.2fr}
+.bar{fill:#BFE0CC;transition:fill .3s;transform-box:fill-box;transform-origin:bottom;animation:grow .8s cubic-bezier(.2,.7,.2,1) both}
+.bar:nth-of-type(2){animation-delay:.12s}.bar:nth-of-type(3){animation-delay:.24s}.bar:nth-of-type(4){animation-delay:.36s}
+.bar.on{fill:#1B7A45}
+@keyframes grow{from{transform:scaleY(0)}}
+.grid>div{padding:5px 8px;border-right:1px solid #E6E6E6;border-bottom:1px solid #E6E6E6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.grid .h{background:#F0F0F0;color:#777;text-align:center}
+.grid .n{text-align:right}
+.grid .sel{outline:2px solid #1B7A45;outline-offset:-2px;background:#E8F5EC}
+.grid>div{transition:background .2s}
+.sheet-chart{padding:12px;border-top:1px solid #DDD}
+.sheet-chart svg{width:100%;height:auto}
+.sheet-cap{padding:var(--s4) var(--s3) var(--s2)}
+.sheet-cap .mono{color:var(--on-dark-2);display:block;margin-bottom:var(--s1)}
+.sheet-cap strong{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:var(--s8);border-top:1.5px solid var(--ink)}
+.stats div{padding:var(--s4) var(--s3) 0 0}
+.stats div+div{padding-left:var(--s4);border-left:1px solid var(--line)}
+.stats b{display:block;font-size:clamp(1.75rem,4vw,3rem);font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.stats span{font-size:14px;color:var(--ink-2)}
+@media(min-width:960px){
+  .hero{padding-top:var(--s7)}
+  .hero-grid{grid-template-columns:1.15fr .85fr}
+}
+
+/* Principles */
+.principles{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.principles ul{display:grid}
+.principles li{padding:var(--s6) 0;border-bottom:1px solid var(--line)}
+.principles li:last-child{border-bottom:0}
+.principles .mono{color:var(--accent-ink)}
+.principles h3{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:var(--s2) 0 var(--s2);line-height:1.2}
+.principles p{color:var(--ink-2);font-size:16px;max-width:30em}
+@media(min-width:960px){
+  .principles ul{grid-template-columns:repeat(4,1fr)}
+  .principles li{padding:var(--s7) var(--s5) var(--s7) 0;border-bottom:0}
+  .principles li+li{padding-left:var(--s5);border-left:1px solid var(--line)}
+}
+
+/* Sections */
+section{scroll-margin-top:72px}
+.sec{padding:var(--s9) 0}
+.sec-head{margin-bottom:var(--s7);max-width:44rem}
+.sec-head .mono{color:var(--accent-ink);display:block;margin-bottom:var(--s3)}
+h2{font-size:clamp(2.25rem,5.2vw,4rem);font-weight:800;letter-spacing:-.035em;line-height:1}
+.sec-head p{margin-top:var(--s4);color:var(--ink-2);font-size:18px;max-width:36em}
+
+/* Featured course */
+.dark{background:var(--dark);color:var(--on-dark)}
+.dark .sec-head .mono{color:#6FD39B}
+.dark .sec-head p{color:var(--on-dark-2)}
+.course{display:grid;gap:var(--s7)}
+.course-meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #333}
+.course-meta div{padding:var(--s4) 0;border-bottom:1px solid #333}
+.course-meta div:nth-child(even){padding-left:var(--s4);border-left:1px solid #333}
+.course-meta .mono{color:var(--on-dark-2);display:block}
+.course-meta b{font-size:20px;font-weight:600}
+.course .btn{margin-top:var(--s6)}
+.lessons li{display:grid;grid-template-columns:40px 1fr;gap:var(--s3);padding:var(--s4) 0;border-top:1px solid #333;align-items:baseline}
+.lessons li:last-child{border-bottom:1px solid #333}
+.lessons .mono{color:#6FD39B}
+.lessons span:last-child{font-size:18px}
+@media(min-width:960px){.course{grid-template-columns:1fr 1fr;gap:var(--s9)}}
+
+/* Curriculum */
+.timeline{position:relative}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);position:relative;margin-bottom:var(--s6)}
+.tabs::before{content:"";position:absolute;left:0;right:0;top:11px;height:1.5px;background:var(--ink)}
+.tab{position:relative;background:none;border:0;text-align:left;cursor:pointer;font:inherit;color:var(--ink-2);padding:var(--s6) var(--s2) var(--s3) 0;min-height:44px}
+.tab::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:1.5px solid var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink)}
+.tab[aria-selected="true"]::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px var(--bg),0 0 0 5.5px var(--accent)}
+.tab .mono{display:block;font-size:11px}
+.tab span:last-child{display:none;font-weight:700;font-size:18px;letter-spacing:-.01em;line-height:1.25}
+.panel{display:grid;gap:var(--s6);padding-top:var(--s2)}
+.panel[hidden]{display:none}
+.panel h3{font-size:clamp(1.75rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.panel>div>p{margin-top:var(--s3);color:var(--ink-2);max-width:30em}
+.topics li{display:flex;gap:var(--s4);padding:var(--s3) 0;border-top:1px solid var(--line);font-size:17px}
+.topics li:last-child{border-bottom:1px solid var(--line)}
+.topics code{font-family:var(--f-mono);font-size:14px;background:var(--bg-2);padding:2px 8px;border-radius:4px;color:var(--accent-ink);flex:none;align-self:flex-start}
+@media(min-width:720px){
+  .tab span:last-child{display:block}
+  .tabs{gap:var(--s5)}
+}
+@media(min-width:960px){.panel{grid-template-columns:.8fr 1.2fr;gap:var(--s9)}}
+
+/* Audience */
+.alt{background:var(--bg-2)}
+.audience{display:grid;gap:var(--s7)}
+.who li{display:grid;grid-template-columns:1fr;gap:var(--s1);padding:var(--s4) 0;border-top:1px solid var(--ink)}
+.who li:last-child{border-bottom:1px solid var(--ink)}
+.who b{font-size:22px;letter-spacing:-.02em}
+.who span{color:var(--ink-2)}
+@media(min-width:720px){.who li{grid-template-columns:200px 1fr;gap:var(--s5);align-items:baseline}}
+@media(min-width:960px){.audience{grid-template-columns:.9fr 1.1fr;gap:var(--s9)}}
+
+
+/* Pricing */
+.plans{display:grid;border-top:1.5px solid var(--ink)}
+.plan{display:flex;flex-direction:column;padding:var(--s6) 0;border-bottom:1px solid var(--line);position:relative;min-width:0}
+.plan .mono{color:var(--accent-ink)}
+.plan h3{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:var(--s2)}
+.plan .for{color:var(--ink-2);margin-top:var(--s1)}
+.plan .old{margin-top:var(--s5);color:var(--ink-2);font-size:15px}
+.plan .old del{text-decoration-thickness:1.5px}
+.plan .now{font-size:clamp(2.5rem,4.4vw,3.25rem);font-weight:800;letter-spacing:-.04em;line-height:1.1}
+.plan .save{font:500 12px var(--f-mono);letter-spacing:.04em;color:var(--accent-ink);margin-top:var(--s1)}
+.feat{margin:var(--s5) 0 var(--s6);border-top:1px solid var(--line)}
+.feat li{position:relative;padding:var(--s3) 0 var(--s3) 28px;border-bottom:1px solid var(--line);font-size:16px;line-height:1.45}
+.feat li::before{content:"";position:absolute;left:0;top:17px;width:14px;height:14px;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B7A45' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E")}
+.plan .btn{margin-top:auto;justify-content:center}
+.plan .tag{position:absolute;top:var(--s6);right:0;background:var(--accent);color:#fff;padding:2px 10px;border-radius:2px}
+.plan--pro{background:var(--bg);padding-left:var(--s4);padding-right:var(--s4);margin:0 calc(var(--s4)*-1);border-top:4px solid var(--accent)}
+.plan--pro .tag{right:var(--s4)}
+@media(min-width:960px){
+  .plans{grid-template-columns:repeat(3,1fr)}
+  .plan{padding:var(--s7) var(--s5);border-bottom:0}
+  .plan:first-child{padding-left:0}
+  .plan:last-child{padding-right:0}
+  .plan+.plan{border-left:1px solid var(--line)}
+  .plan--pro{margin:calc(var(--s5)*-1) 0;padding:calc(var(--s7) + var(--s5)) var(--s5) var(--s7);border-top:4px solid var(--accent)}
+  .plan--pro .tag{top:calc(var(--s7) + var(--s5));right:var(--s5)}
+}
+
+/* Belief */
+.belief{display:grid;gap:var(--s7);align-items:end}
+.belief h2{font-size:clamp(2.75rem,7vw,5.5rem)}
+.belief .green{background:#1B7A45;color:#F4FBF6;border-radius:12px;padding:var(--s6)}
+.belief .green .mono{color:#BFE8D0}
+.belief .green ol{margin-top:var(--s4);list-style:none;counter-reset:s}
+.belief .green li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;padding:var(--s3) 0;border-top:1px solid rgba(255,255,255,.28);font-size:18px}
+.belief .green li::before{content:"0" counter(s);font-family:var(--f-mono);font-size:13px;padding-top:5px;color:#BFE8D0}
+.cta-row{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s6)}
+@media(min-width:960px){.belief{grid-template-columns:1.1fr .9fr;gap:var(--s9)}}
+
+/* Footer */
+.foot{padding:var(--s8) 0 var(--s6);border-top:1px solid #333;background:var(--dark);color:var(--on-dark-2);font-size:15px}
+.foot-grid{display:grid;gap:var(--s6);margin-bottom:var(--s7)}
+.foot .logo{color:var(--on-dark)}
+.foot ul a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-dark);text-decoration:none}
+.foot ul a:hover{text-decoration:underline}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s3);padding-top:var(--s5);border-top:1px solid #333}
+@media(min-width:720px){.foot-grid{grid-template-columns:2fr 1fr 1fr}}
+
+.js [data-rv]{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*90ms)}
+.js [data-rv].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .js [data-rv]{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#konten">Lompat ke konten</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="bar">
+      <a class="logo" href="#atas" aria-label="PahamExcel, beranda">
+        <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        PahamExcel
+      </a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="#kursus">Kursus</a>
+        <a href="#kurikulum">Jalur belajar</a>
+        <a href="#filosofi">Tentang</a>
+        <a href="#harga">Harga</a>
+      </nav>
+      <div class="bar-actions">
+        <a class="signin" href="#masuk">Masuk</a>
+        <a class="btn btn--solid" href="#kursus">Jelajahi kursus</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navigasi seluler">
+      <a href="#kursus">Kursus</a>
+      <a href="#kurikulum">Jalur belajar</a>
+      <a href="#filosofi">Tentang</a>
+      <a href="#harga">Harga</a>
+      <a href="#masuk">Masuk</a>
+      <a class="btn btn--solid" href="#kursus">Jelajahi kursus</a>
+    </nav>
+  </div>
+</header>
+
+<main id="konten">
+<!-- HERO -->
+<section class="hero" id="atas">
+  <div class="wrap">
+    <div class="hero-meta mono">
+      <span>Akademi Excel Online</span>
+      <span>Berbahasa Indonesia</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 aria-label="Belajar. Praktik. Mahir."><span class="line" aria-hidden="true">Belajar.</span><span class="line" aria-hidden="true">Praktik.</span><span class="line line--g" aria-hidden="true">Mahir.</span></h1>
+        <p class="hero-lead">Kursus Microsoft Excel yang disusun dari pekerjaan kantor sehari-hari: rapikan data, hitung dengan rumus, lalu sajikan sebagai laporan yang bisa dipakai atasan.</p>
+        <div class="hero-cta">
+          <a class="btn btn--solid" href="#kursus">Jelajahi kursus
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn" href="#kurikulum">Lihat kurikulum</a>
+        </div>
+      </div>
+
+      <figure class="sheet-card">
+        <div class="sheet" aria-hidden="true">
+          <div class="sheet-top"><b>Penjualan_2026.xlsx</b></div>
+          <div class="fx"><span id="fxName">C4</span><em id="fxText">=B4*200000</em></div>
+          <div class="grid" id="grid">
+            <div class="h"></div><div class="h">A</div><div class="h">B</div><div class="h">C</div>
+            <div class="h">1</div><div><b>Kuartal</b></div><div class="n"><b>Unit</b></div><div class="n"><b>Omzet</b></div>
+            <div class="h">2</div><div>Q1</div><div class="n">420</div><div class="n" data-c="C2" data-f="=B2*200000">84,0 jt</div>
+            <div class="h">3</div><div>Q2</div><div class="n">510</div><div class="n" data-c="C3" data-f="=B3*200000">102,0 jt</div>
+            <div class="h">4</div><div>Q3</div><div class="n">640</div><div class="n" data-c="C4" data-f="=B4*200000">128,0 jt</div>
+            <div class="h">5</div><div>Q4</div><div class="n">480</div><div class="n" data-c="C5" data-f="=B5*200000">96,0 jt</div>
+            <div class="h">6</div><div><b>Total</b></div><div class="n">2.050</div><div class="n" data-c="C6" data-f="=SUM(C2:C5)"><b>410,0 jt</b></div>
+          </div>
+          <div class="sheet-chart">
+            <svg viewBox="0 0 320 90" role="presentation">
+              <line x1="0" y1="80" x2="320" y2="80" stroke="#DDD"/>
+              <rect class="bar" x="20"  y="34" width="44" height="46"/>
+              <rect class="bar" x="92"  y="24" width="44" height="56"/>
+              <rect class="bar" x="164" y="10" width="44" height="70"/>
+              <rect class="bar" x="236" y="28" width="44" height="52"/>
+              <text x="42"  y="90" font-size="8" text-anchor="middle" fill="#777">Q1</text>
+              <text x="114" y="90" font-size="8" text-anchor="middle" fill="#777">Q2</text>
+              <text x="186" y="90" font-size="8" text-anchor="middle" fill="#777">Q3</text>
+              <text x="258" y="90" font-size="8" text-anchor="middle" fill="#777">Q4</text>
+            </svg>
+          </div>
+        </div>
+        <figcaption class="sheet-cap">
+          <span class="mono">Kursus unggulan</span>
+          <strong>Excel Mastery &amp; Data Analytics</strong>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="stats">
+      <div><b>3</b><span>Paket belajar</span></div>
+      <div><b>15+</b><span>Video materi dasar</span></div>
+      <div><b>20+</b><span>Template Excel siap pakai</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINSIP -->
+<section class="principles" aria-label="Cara belajar di PahamExcel">
+  <div class="wrap">
+    <ul>
+      <li><span class="mono">01</span><h3>Kasus kerja nyata</h3><p>Setiap materi dimulai dari masalah kantor: laporan penjualan, absensi, stok, anggaran.</p></li>
+      <li><span class="mono">02</span><h3>Praktik di file sendiri</h3><p>Ikuti langkahnya sambil mengetik di Excel, bukan sekadar menonton layar.</p></li>
+      <li><span class="mono">03</span><h3>Urutan yang jelas</h3><p>Dari sel dan format, ke rumus, ke PivotTable, sampai dashboard. Tidak ada lompatan.</p></li>
+      <li><span class="mono">04</span><h3>Bisa diulang</h3><p>Materi tertulis dan video pendek, supaya mudah dibuka lagi saat butuh satu rumus saja.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- KURSUS UNGGULAN -->
+<section class="sec dark" id="kursus">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">Kursus unggulan</span>
+      <h2>Excel Mastery &amp; Data Analytics</h2>
+      <p>Satu jalur lengkap untuk berpindah dari “asal bisa” ke analisis data yang rapi dan bisa dipertanggungjawabkan.</p>
+    </div>
+    <div class="course">
+      <div>
+        <div class="course-meta">
+          <div><span class="mono">Durasi</span><b>7 hari</b></div>
+          <div><span class="mono">Paket</span><b>Starter, Pro, Master</b></div>
+          <div><span class="mono">Level</span><b>Pemula – Menengah</b></div>
+          <div><span class="mono">Versi Excel</span><b>Microsoft 365 / 2021</b></div>
+        </div>
+        <a class="btn btn--solid" href="#harga">Lihat paket belajar</a>
+      </div>
+      <ol class="lessons">
+        <li><span class="mono">01</span><span>Mengenal sel, tabel, dan format angka</span></li>
+        <li><span class="mono">02</span><span>Rumus logika dan pencarian data</span></li>
+        <li><span class="mono">03</span><span>Merangkum data dengan PivotTable</span></li>
+        <li><span class="mono">04</span><span>Grafik dan dashboard interaktif</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- KURIKULUM -->
+<section class="sec" id="kurikulum">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">Jalur belajar</span>
+      <h2>Empat tahap, satu alur kerja.</h2>
+      <p>Pilih tahap untuk melihat isi materinya.</p>
+    </div>
+    <div class="timeline">
+      <div class="tabs" role="tablist" aria-label="Tahap kurikulum">
+        <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true"><span class="mono">Tahap 01</span><span>Dasar Excel</span></button>
+        <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span class="mono">Tahap 02</span><span>Rumus &amp; Fungsi</span></button>
+        <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><span class="mono">Tahap 03</span><span>PivotTable &amp; Grafik</span></button>
+        <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1"><span class="mono">Tahap 04</span><span>Dashboard &amp; Makro</span></button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+        <div><h3>Dasar Excel</h3><p>Kenali ruang kerja dan bangun kebiasaan menata data yang benar sejak awal.</p></div>
+        <ul class="topics">
+          <li><code>Ctrl+T</code><span>Mengubah rentang data menjadi tabel</span></li>
+          <li><code>Format</code><span>Angka, tanggal, mata uang rupiah</span></li>
+          <li><code>Filter</code><span>Mengurutkan dan menyaring data</span></li>
+          <li><code>Validasi</code><span>Daftar pilihan agar input seragam</span></li>
+        </ul>
+      </div>
+      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <div><h3>Rumus &amp; Fungsi</h3><p>Hitung otomatis, bukan manual. Dari penjumlahan sampai pencarian lintas tabel.</p></div>
+        <ul class="topics">
+          <li><code>SUM · AVERAGE</code><span>Ringkasan angka dasar</span></li>
+          <li><code>IF · IFS</code><span>Keputusan otomatis berdasarkan syarat</span></li>
+          <li><code>SUMIFS · COUNTIFS</code><span>Menjumlah dan menghitung dengan banyak kriteria</span></li>
+          <li><code>XLOOKUP</code><span>Mengambil data dari tabel lain</span></li>
+        </ul>
+      </div>
+      <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+        <div><h3>PivotTable &amp; Grafik</h3><p>Ringkas ribuan baris menjadi satu tabel yang menjawab pertanyaan.</p></div>
+        <ul class="topics">
+          <li><code>PivotTable</code><span>Mengelompokkan data berdasarkan wilayah, bulan, produk</span></li>
+          <li><code>Slicer</code><span>Filter visual yang mudah dipakai orang lain</span></li>
+          <li><code>Grafik</code><span>Memilih jenis grafik yang tepat untuk datanya</span></li>
+          <li><code>Format bersyarat</code><span>Menandai angka penting secara otomatis</span></li>
+        </ul>
+      </div>
+      <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+        <div><h3>Dashboard &amp; Makro</h3><p>Gabungkan semuanya dalam satu halaman laporan, lalu otomatiskan pekerjaan berulang.</p></div>
+        <ul class="topics">
+          <li><code>Dashboard</code><span>Menata KPI, grafik, dan slicer dalam satu lembar</span></li>
+          <li><code>Power Query</code><span>Membersihkan dan menggabungkan data mentah</span></li>
+          <li><code>Makro</code><span>Merekam langkah berulang menjadi satu tombol</span></li>
+          <li><code>Proteksi</code><span>Mengunci rumus sebelum file dibagikan</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNTUK SIAPA -->
+<section class="sec alt" id="untuk-siapa">
+  <div class="wrap audience">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="mono">Untuk siapa</span>
+      <h2>Dirancang untuk yang bekerja dengan angka.</h2>
+    </div>
+    <ul class="who">
+      <li><b>Staf administrasi</b><span>Rekap data, absensi, dan surat-menyurat tabel tanpa salin-tempel berulang.</span></li>
+      <li><b>Tim keuangan</b><span>Anggaran, rekonsiliasi, dan laporan bulanan dengan rumus yang bisa diaudit.</span></li>
+      <li><b>Analis dan marketing</b><span>Menggali pola dari data penjualan dan kampanye dengan PivotTable.</span></li>
+      <li><b>Mahasiswa dan pencari kerja</b><span>Keterampilan dasar yang sering diminta di lowongan kerja kantoran.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- HARGA -->
+<section class="sec alt" id="harga">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">Paket belajar</span>
+      <h2>Pilih paket sesuai tujuanmu.</h2>
+      <p>Tiga paket, dari rumus dasar sampai dashboard profesional.</p>
+    </div>
+    <ul class="plans">
+      <li class="plan">
+        <span class="mono">Paket 01</span>
+        <h3>Starter</h3>
+        <p class="for">Pemula dari nol</p>
+        <p class="old">Harga normal <del>Rp 250.000</del></p>
+        <p class="now">Rp 99.000</p>
+        <p class="save">Hemat Rp 151.000</p>
+        <ul class="feat">
+          <li>Akses 15+ video materi dasar</li>
+          <li>Pengenalan interface &amp; format data</li>
+          <li>Rumus wajib: SUM, AVERAGE, IF, COUNT</li>
+          <li>File latihan &amp; e-sertifikat</li>
+        </ul>
+        <a class="btn" href="https://wa.me/6281294293101?text=Halo%2C%20saya%20mau%20daftar%20Paket%20Starter%20PahamExcel">Pilih Paket Starter</a>
+      </li>
+      <li class="plan plan--pro">
+        <span class="mono tag">Paling laris</span>
+        <span class="mono">Paket 02</span>
+        <h3>Pro</h3>
+        <p class="for">Mahasiswa, admin, dan karyawan</p>
+        <p class="old">Harga normal <del>Rp 490.000</del></p>
+        <p class="now">Rp 199.000</p>
+        <p class="save">Hemat Rp 291.000</p>
+        <ul class="feat">
+          <li>Semua materi Paket Starter</li>
+          <li>Rumus lanjutan: VLOOKUP, XLOOKUP, INDEX-MATCH</li>
+          <li>Data cleaning, PivotTable, dan grafik interaktif</li>
+          <li>Studi kasus laporan kerja nyata</li>
+          <li>Grup diskusi &amp; e-sertifikat</li>
+        </ul>
+        <a class="btn btn--solid" href="https://wa.me/6281294293101?text=Halo%2C%20saya%20mau%20daftar%20Paket%20Pro%20PahamExcel">Pilih Paket Pro</a>
+      </li>
+      <li class="plan">
+        <span class="mono">Paket 03</span>
+        <h3>Master</h3>
+        <p class="for">Data analyst dan profesional</p>
+        <p class="old">Harga normal <del>Rp 790.000</del></p>
+        <p class="now">Rp 349.000</p>
+        <p class="save">Hemat Rp 441.000</p>
+        <ul class="feat">
+          <li>Semua materi Paket Pro</li>
+          <li>Membuat dashboard profesional</li>
+          <li>Pengenalan Power Query &amp; Macro/VBA dasar</li>
+          <li>20+ template Excel siap pakai</li>
+          <li>1x sesi konsultasi/review file kerja</li>
+        </ul>
+        <a class="btn" href="https://wa.me/6281294293101?text=Halo%2C%20saya%20mau%20daftar%20Paket%20Master%20PahamExcel">Pilih Paket Master</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- FILOSOFI -->
+<section class="sec dark" id="filosofi">
+  <div class="wrap belief">
+    <div>
+      <span class="mono" style="color:#6FD39B;display:block;margin-bottom:16px">Tentang kami</span>
+      <h2>Belajar harus membuatmu bergerak.</h2>
+      <p style="margin-top:24px;color:var(--on-dark-2);max-width:32em;font-size:18px">Kami percaya Excel dikuasai lewat pekerjaan nyata. Setiap pelajaran berakhir dengan sesuatu yang bisa langsung kamu pakai besok pagi.</p>
+      <div class="cta-row"><a class="btn btn--solid" href="#kursus">Mulai dari kursus unggulan</a></div>
+    </div>
+    <div class="green">
+      <span class="mono">Alur tiap pelajaran</span>
+      <ol>
+        <li>Lihat masalahnya.</li>
+        <li>Selesaikan langkah demi langkah.</li>
+        <li>Terapkan pada datamu sendiri.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot" id="masuk">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#atas"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>PahamExcel</a>
+        <p style="margin-top:16px;max-width:26em">Kursus Microsoft Excel online berbahasa Indonesia.</p>
+      </div>
+      <div>
+        <p class="mono" style="margin-bottom:8px">Jelajah</p>
+        <ul><li><a href="#kursus">Kursus</a></li><li><a href="#kurikulum">Jalur belajar</a></li><li><a href="#harga">Harga</a></li></ul>
+      </div>
+      <div>
+        <p class="mono" style="margin-bottom:8px">Kontak</p>
+        <ul><li><a href="https://wa.me/6281294293101">WhatsApp +62 812-9429-3101</a></li><li><a href="mailto:kevingunawan076@gmail.com">kevingunawan076@gmail.com</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-base"><span>© 2026 PahamExcel</span><span>Microsoft Excel adalah merek dagang Microsoft Corporation.</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var chars=[],h1=document.querySelector('h1');
+    [].forEach.call(h1.querySelectorAll('.line'),function(l){
+      var t=l.textContent;l.textContent='';
+      for(var k=0;k<t.length;k++){var c=document.createElement('span');c.className='c';c.textContent=t[k];l.appendChild(c);chars.push(c);}
+    });
+    var caret=document.createElement('span');caret.className='caret';caret.setAttribute('aria-hidden','true');
+    var idx=0;
+    setTimeout(function typeNext(){
+      if(idx>=chars.length){setTimeout(function(){caret.remove()},1800);return;}
+      var c=chars[idx++];c.classList.add('on');c.after(caret);
+      setTimeout(typeNext,c.textContent==='.'?260:75);
+    },350);
+  }
+
+  var rv=[].slice.call(document.querySelectorAll('.sec-head,.hero-lead,.hero-cta,.sheet-card,.stats>div,.principles li,.course-meta,.lessons li,.tabs,.panel:not([hidden]),.who li,.plan,.belief>div,.foot-grid>div'));
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.documentElement.classList.add('js');
+    rv.forEach(function(e){e.setAttribute('data-rv','');var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--i',Math.min(sib,4));});
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12});
+    rv.forEach(function(e){io.observe(e)});
+  }
+
+  var cells=[].slice.call(document.querySelectorAll('#grid [data-c]'));
+  var bars=[].slice.call(document.querySelectorAll('.bar'));
+  var fxName=document.getElementById('fxName'),fxText=document.getElementById('fxText');
+  function pick(k){
+    cells.forEach(function(c,j){c.classList.toggle('sel',j===k)});
+    fxName.textContent=cells[k].dataset.c;
+    fxText.textContent=cells[k].dataset.f;
+    bars.forEach(function(b,j){b.classList.toggle('on',k===cells.length-1||j===k)});
+  }
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){pick(2);}
+  else{var n=0;pick(0);setInterval(function(){n=(n+1)%cells.length;pick(n);},1800);}
+
+  var btn=document.getElementById('menuBtn'),nav=document.getElementById('mobileNav');
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.textContent=open?'Tutup':'Menu';
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu';}
+  });
+
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(t){
+    tabs.forEach(function(x){
+      var on=x===t;
+      x.setAttribute('aria-selected',on);
+      x.tabIndex=on?0:-1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden=!on;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];
+      if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];
+      if(e.key==='Home')n=tabs[0];
+      if(e.key==='End')n=tabs[tabs.length-1];
+      if(n){e.preventDefault();select(n);n.focus();}
+    });
+  });
+})();
+</script>
+</body>
+</html>
